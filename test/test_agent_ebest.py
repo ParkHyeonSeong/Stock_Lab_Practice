@@ -13,7 +13,7 @@ class TestEBest(unittest.TestCase):
 
 	def test_get_code_list(self):
 
-		print("테스트케이스 1. ",inspect.stack()[0][3])
+		print("테스트케이스 1. ", inspect.stack()[0][3])
 		# 코스피 리스트
 		all_result = self.ebest.get_code_list("KOSPI")
 		assert all_result is not None, '정보를 가져오지 못했습니다.'	# 가정설명문
@@ -23,6 +23,11 @@ class TestEBest(unittest.TestCase):
 		assert all_result is not None, '정보를 가져오지 못했습니다.'
 		print("KOSDAQ 종목 개수 : ", len(all_result))
 
+	def test_get_stock_price_list_by_code(self):
+		print("테스트 케이스 2. ", inspect.stack()[0][3])
+		result = self.ebest.get_stock_price_by_code("005930", "2")
+		assert result is not None, '정보를 가져오지 못했습니다.'
+		print(result)
 
 
 	def tearDown(self):
